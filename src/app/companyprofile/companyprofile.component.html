@@ -1,0 +1,379 @@
+<app-nav></app-nav>
+
+
+<div class="bg-white-sect-filter" *ngFor="let company of company">
+
+  <div  fxLayout="row"  fxLayoutAlign="space-between-center" fxLayoutGap=1% fxLayoutAlign.lt-sm="space-between-center" fxLayout.lt-sm="column" >
+    <div fxLayout="column" fxFlex=20 fxLayoutAlign="space-between-center"  fxLayout.lt-sm="column" fxLayoutGap=1% fxLayoutAlign.lt-sm="space-between-center">
+      <img src="https://scon2.herokuapp.com/{{company?.image}}" fxFlexAlign="center" class="img-responsive"  alt="company" width="70%">
+      <h4 style="color: rgb(65, 14, 252);" fxFlexAlign="center">{{company.Name}}</h4>
+       <p style="color: rgb(65, 14, 252);" fxFlexAlign="center">{{company.kind}}</p>
+    </div>
+    <div fxLayout="column" fxFlex=40 fxLayoutAlign="space-between-center" fxLayout.lt-sm="column">
+
+      <p style="color: rgb(65, 14, 252);" fxFlexAlign="center" >المعلومات الشخصية</p><br>
+      <div  fxLayout="row"  fxLayoutAlign="space-around center" fxLayoutGap=1% fxLayout.lt-sm="column" >
+          <h4 style="color: rgb(65, 14, 252);">الايميل</h4>
+           <p >{{company.email}}</p>
+           <h4 style="color: rgb(65, 14, 252);">الجوال</h4>
+           <p >{{company?.phone}}</p></div><hr>
+           <div  fxLayout="row"  fxLayoutAlign="space-around center" fxLayoutGap=1% fxLayout.lt-sm="column">
+             <h4 style="color: rgb(65, 14, 252);">المدينة</h4>
+               <p>{{company?.City?.Name}}</p>
+                <h4 style="color: rgb(65, 14, 252);">المنطقة</h4>
+                 <p>{{company?.Regon?.Name}}</p></div>
+                 <hr>
+                 <div  fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap=1% fxLayoutAlign="start center" fxLayout.lt-sm="column">
+                 <h4 style="color: rgb(65, 14, 252);">الاهتمامات</h4>
+                 <p>{{company?.Category?.Name}}</p></div>
+
+         </div>
+        </div>
+
+      </div>
+
+<div class="sector">
+  <div  fxLayout="row"  fxLayoutAlign="space-between-center" fxLayoutGap=1% fxLayoutAlign.lt-sm="space-around center">
+    <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#demo">اضافة منشأة فرعية</button>
+    <div id="demo" class="collapse">
+      <br>
+      <form dir="rtl" [formGroup]="form">
+        <div class="form-group row">
+            <div class="col-sm-6" >
+                <label for="inputFirstname" dir="rtl">اسم المنشأة</label>
+                <input type="text" class="form-control" placeholder="اسم المنشأة" formControlName="name">
+            </div>
+            <div class="col-sm-6">
+                <label for="inputemail">بريد المنشأة</label>
+                <input type="email" class="form-control"  placeholder="أدخل الايميل" formControlName="email">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <label for="inputAddressLine1">العنوان</label>
+                <input type="text" class="form-control"  placeholder="عنوان المنشأة" formControlName="address">
+            </div>
+            <div class="col-sm-6">
+                <label for="inputtel">جوال المنشأة</label>
+                <input type="tel" class="form-control"  placeholder="الجوال" formControlName="phone">
+            </div>
+        </div>
+        <div class="form-group row">
+
+          <div class="col-sm-6">
+             <label for="inputCountry">المدينة</label>
+             <select type="text"  class="form-control"  placeholder="اختر المدينة" (change)="getreagon($event)" formControlName="city" >
+               <option value="" > اختر المدينة</option>
+               <option *ngFor="let city of cities" value="{{city.id}}">{{city.Name}}</option>
+             </select>
+         </div>
+         <div class="col-sm-6">
+          <label for="inputCity">المنطقة</label>
+          <select type="text"  class="form-control"  placeholder="اختر المنطقة" formControlName="regon">
+           <option value=""> اختر المنطقة</option>
+           <option *ngFor="let regon of regons" value="{{regon.id}}">{{regon.Name}}</option>
+         </select>
+
+         </div>
+
+     </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+              <label for="sel1">التصنيف</label>
+              <select  required="required" class="form-control"   formControlName="category">
+                 <option value="">اختر التصنيف</option>
+                 <option *ngFor="let category of categories" value="{{category.id}}">{{category.Name}}</option>
+                 </select>
+            </div>
+            <div class="col-sm-6">
+                <label for="inputimg">صورة شعار المنشأة</label>
+                <input type="file" class="form-control"  placeholder="اختر الصورة" #companyimage  formControlName="image">
+            </div>
+
+         </div>
+         <div class="form-group row">
+          <div class="col-sm-6">
+              <label for="inputpassword">الرقم السري</label>
+              <input type="password" class="form-control"  placeholder=" كلمة السر" formControlName="password">
+          </div>
+
+
+
+      </div>
+        <button type="button" class="btn btn-primary px-4 float-right" (click)="registerasubcompany()" >تسجيل المنشأة</button>
+    </form>
+    </div>
+  </div>
+  <br>
+<hr>
+  <div  fxLayout="row"  fxLayoutAlign="space-between-center" fxLayoutGap=1% fxLayoutAlign.lt-sm="space-around center">
+
+  <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#demo1">اضافة خصم لمنتج</button>
+
+  <div id="demo1" class="collapse">
+    <br>
+    <form dir="rtl" [formGroup]="form2">
+      <div class="form-group row">
+          <div class="col-sm-6">
+              <label for="inputemail">عنوان العرض</label>
+              <input type="text" class="form-control"  formControlName="title">
+          </div>
+          <div class="col-sm-6">
+            <label for="inputemail">وصف العرض</label>
+            <input type="text" class="form-control"  formControlName="discription">
+        </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-sm-6">
+              <label for="inputAddressLine1">تاريخ البداية</label>
+               <input type="date"  class="form-control"  name="trip-start"  value="2020-08-22" formControlName="startdate" >
+                 </div>
+              <div class="col-sm-6">
+              <label for="inputtel"> تاريخ النهاية</label>
+              <input type="date"  class="form-control"  name="trip-start"  value="2020-08-22" formControlName="enddate">
+                </div>
+                </div>
+                <div class="form-group row">
+
+
+                <div class="col-sm-6">
+                <label for="inputemail"> السعر</label>
+                <input type="text" class="form-control"  formControlName="price">
+            </div>
+            <div class="col-sm-6">
+              <label for="inputemail"> نسبة الخصم</label>
+              <input type="text" class="form-control"  formControlName="discount">
+          </div>
+
+
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                  <label for="sel1">الفروع المتاح فيها العرض</label>
+                  <mat-select style="border: 1px solid black; width: 100%;
+                  height: 40px; border-radius: 20px;"  multiple formControlName="interest" formControlName="SubcompanyId">
+                 <mat-option *ngFor="let subcompany of subcompany" value="{{subcompany.id}}">{{subcompany.Name}}</mat-option>
+                   </mat-select>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputimg">صورة المنتج</label>
+                    <input type="file" class="form-control"  placeholder="اختر الصورة" #discountimage  formControlName="image">
+                </div>
+
+             </div>
+
+
+
+
+
+      <button type="button" class="btn btn-primary px-4 float-right" (click) ="adddiscount()" > اضافة الخصم</button>
+  </form>
+  </div>
+</div>
+<br>
+<hr>
+ <div  fxLayout="row"  fxLayoutAlign="space-between-center" fxLayoutGap=1% fxLayoutAlign.lt-sm="space-around center">
+  <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#demo2">اضافة خصم لجميع المنتجات</button>
+
+  <div id="demo2" class="collapse">
+    <br>
+    <form dir="rtl" [formGroup]="form3">
+      <div class="form-group row">
+  <div class="col-sm-6">
+              <label for="inputemail">عنوان العرض</label>
+              <input type="text" class="form-control" placeholder="" formControlName="title">
+          </div>
+          <div class="col-sm-6">
+            <label for="inputemail">وصف العرض</label>
+            <input type="text" class="form-control"  placeholder="" formControlName="discription">
+        </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-sm-6">
+              <label for="inputAddressLine1">تاريخ البداية</label>
+               <input type="date"  class="form-control" id="start" name="trip-start"  value="2020-08-22" formControlName="startdate" >
+                 </div>
+              <div class="col-sm-6">
+              <label for="inputtel"> تاريخ النهاية</label>
+              <input type="date"  class="form-control" id="start" name="trip-start"  value="2020-08-22" formControlName="enddate" >
+                </div>
+                </div>
+                <div class="form-group row">
+            <div class="col-sm-6">
+              <label for="inputemail"> نسبة الخصم</label>
+              <input type="text" class="form-control" id="inputemail" placeholder="" formControlName="discount">
+          </div>
+              <div class="col-sm-6">
+                  <label for="sel1">الفروع المتاح فيها العرض</label>
+                  <mat-select style="border: 1px solid black; width: 100%;
+                  height: 40px; border-radius: 20px;"  multiple formControlName="SubcompanyId">
+                 <mat-option *ngFor="let subcompany of subcompany" value="{{subcompany.id}}">{{subcompany.Name}}</mat-option>
+                </mat-select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputimg">صورة شعار المنشأة</label>
+                    <input type="file" class="form-control" placeholder="اختر الصورة" #discountallimage  formControlName="image">
+                </div>
+
+             </div>
+
+
+
+
+      <button type="button" class="btn btn-primary px-4 float-right" (click) ="adddiscountall()" > اضافة الخصومات</button>
+  </form>
+  </div>
+</div>
+<br>
+<hr>
+ <div  fxLayout="row"  fxLayoutAlign="space-between-center" fxLayoutGap=1% fxLayoutAlign.lt-sm="space-around center">
+
+  <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#demo6">اضافة كوبون </button>
+
+  <div id="demo6" class="collapse">
+    <br>
+    <form dir="rtl" [formGroup]="form4">
+      <div class="form-group row">
+          <div class="col-sm-6">
+              <label for="inputemail"> اسم المنتج</label>
+              <input type="text" class="form-control"  placeholder="" formControlName="name" >
+          </div>
+          <div class="col-sm-6">
+            <label for="inputemail">وصف المنتج</label>
+            <input type="text" class="form-control"  placeholder="" formControlName="discription">
+        </div>
+      </div>
+      <div class="form-group row">
+          <div class="col-sm-6">
+              <label for="inputAddressLine1">تاريخ البداية</label>
+               <input type="date"  class="form-control"   value="2020-08-22" formControlName="startdate">
+                 </div>
+              <div class="col-sm-6">
+              <label for="inputtel"> تاريخ النهاية</label>
+              <input type="date"  class="form-control"    value="2020-08-22" formControlName="enddate">
+                </div>
+                </div>
+                <div class="form-group row">
+
+                <div class="col-sm-6">
+                    <label for="inputimg">صورة المنتج</label>
+                    <input type="file" class="form-control"  placeholder="اختر الصورة" #cuponimage  formControlName="image">
+                </div>
+                <div class="col-sm-6">
+                  <label for="sel1">نوع الخصم </label>
+                  <select  required="required" class="form-control"   formControlName="cupontype" required>
+                     <option class="form-control">1+1</option>
+                     <option class="form-control">خدمة مجانية </option>
+                     <option class="form-control" >سعر خصم</option>
+                     </select>
+                     <div >
+                      <br>
+                      <h2>   اذا كان الاختيار سعر خصم الرجاء ملء الحقول</h2>
+                     <div class="form-group row">
+                    <div class="col-sm-6">
+                                <label for="inputemail"> السعر السابق</label>
+                                <input type="text" class="form-control" placeholder="" formControlName="prvprice">
+                            </div>
+                            <div class="col-sm-6">
+                              <label for="inputemail">السعر الحالي </label>
+                              <input type="text" class="form-control"  placeholder="" formControlName="currentprice">
+                          </div>
+                        </div></div>
+                    </div></div>
+
+
+
+
+
+
+
+
+      <button type="button" class="btn btn-primary px-4 float-right" (click)= "addcupon()"> اضافة الكوبون</button>
+  </form>
+  </div>
+</div>
+<br>
+<hr>
+<div fxLayout="row"  fxLayoutAlign="space-between-center" fxLayoutGap=1% fxLayoutAlign.lt-sm="space-around center">
+
+  <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#demo5">اضافة بيانات مستخدم </button>
+
+  <div id="demo5" class="collapse">
+    <br>
+    <form dir="rtl" [formGroup]="form5">
+      <div class="form-group row">
+          <div class="col-sm-6">
+              <label for="inputemail">بريد المستخدم</label>
+              <input type="text" class="form-control" id="inputemail" placeholder="" formControlName="email">
+          </div>
+          <div class="col-sm-6">
+            <label for="inputemail">كلمة المرور </label>
+            <input type="password" class="form-control" id="inputemail" placeholder="" formControlName="password">
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary px-4 float-right" (click)="adduser()" > اضافة كاشير</button>
+  </form>
+  </div>
+</div>
+<br>
+<hr>
+<div  fxLayout="row"  fxLayoutAlign="space-between-center" fxLayoutGap=1% fxLayoutAlign.lt-sm="space-around center" >
+
+  <button class="btn btn-outline-primary" data-toggle="collapse" data-target="#demo4">خدماتي</button>
+
+  <div id="demo4" class="collapse">
+    <br>
+    <form dir="rtl" [formGroup]="form4">
+      <div class="form-group row">
+  <div class="col-sm-6">
+              <label for="inputemail"> اختر خدمة</label>
+              <select  required="required" class="form-control"  id="sel1" >
+                <option value="">اختر خدمة</option>
+                <option >تطوير موقع الكتروني</option>
+                <option > تصميم </option>
+                </select>
+               </div>
+              </div>
+              <div class="form-group row">
+               <div class="col-sm-6">
+                <label for="inputimg"> التفاصيل</label><br>
+                <textarea class="form-control" name="comment" style="width: 300px;">ادخل التفاصيل هنا</textarea>
+                </div>
+            </div>
+
+
+        <button type="button" class="btn btn-primary px-4 float-right" >  طلب الخدمة</button>
+  </form>
+  </div>
+</div>
+<br>
+<hr>
+
+<div  fxLayout="row"  fxLayoutAlign="space-between-center" fxLayoutGap=1% fxLayoutAlign.lt-sm="space-around center" >
+  <button type="button" class="btn btn-primary px-4 float-right" routerLink="/ads" > الاعلانات المستهدفة </button>
+
+
+  <button type="button" class="btn btn-primary px-4 float-right" routerLink="/report" > التقارير  </button>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

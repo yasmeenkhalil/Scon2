@@ -1,0 +1,37 @@
+
+<hr />
+        <h1 style="display: inline-block;">المسوقين</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">الاسم</th>
+                    <th scope="col">الايميل</th>
+                    <th scope="col">العمر</th>
+                    <th scope="col">الجوال</th>
+                    <th scope="col">المدينة</th>
+                    <th scope="col">المنطقة</th>
+                    <th scope="col">الجنس</th>
+                    <th scope="col">الاهتمامات</th>
+                    <th scope="col">الصورة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let company of companies">
+                    <td>{{company.Name}}</td>
+                    <td>{{company.email}}</td>
+                    <td>{{company.age}}</td>
+                    <td>{{company.phone}}</td>
+                    <td>{{company.City.Name}}</td>
+                    <td>{{company.Regon.Name}}</td>
+                    <td>{{company.gender}}</td>
+                    <td>{{company.interist}}</td>
+                    <td>{{company.kind}}</td>
+                    <td><img src="{{company.image}}" style="width:50px; height: 50px;"/></td>
+                    <td>
+                        <button class="btn btn-outline-primary" routerLink="/admin/products/edit/{{company.id}}">Edit</button> |
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+

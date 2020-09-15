@@ -1,0 +1,473 @@
+
+  <section class="category-home-new wrapper-categories">
+    <div class="bg-white-sect-filter">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-6">
+                <div class="input-group">
+                  <div class="input-group-prepend" id="label_search_home">
+                    <span class="input-group-text" id="basic-addon1" >ابحث عن مزود</span >
+                  </div>
+
+                  <input
+                    type="text"
+                    id="searchProvKey"
+                    class="form-control"
+                    placeholder=""
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-outline-warning"
+                      type="button"
+                      id="button-search-prov"
+                    >
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-6">
+                <div class="input-group">
+                  <div class="input-group-prepend" id="label_city_home">
+                    <span class="input-group-text" id="basic-addon1"
+                      >اختر المدينة</span
+                    >
+                  </div>
+                  <select
+                    name="city"
+                    class="form-control"
+                    id="searchCityProvider"
+                  >
+                    <option value=""></option>
+                    <option value="5">جدة </option>
+                    <option value="6">مكة المكرمة</option>
+                    <option value="7">رابغ </option>
+                    <option value="8">الطائف</option>
+                    <option value="9">المدينة المنورة </option>
+                    <option value="10">الرياض</option>
+                    <option value="11">الخرج</option>
+                    <option value="12">تبوك</option>
+                    <option value="13">ينبع</option>
+                    <option value="14">عرعر</option>
+                    <option value="15">حائل</option>
+                    <option value="16">خميس مشيط</option>
+                    <option value="17">أبها</option>
+                    <option value="18">الدمام</option>
+                    <option value="19">الخبر</option>
+                    <option value="20">الظهران</option>
+                    <option value="21">الجبيل</option>
+                    <option value="22">الهفوف‎</option>
+                    <option value="23">المبرز</option>
+                    <option value="24">حفر الباطن</option>
+                    <option value="25">الدوادمي</option>
+                    <option value="26">مدينة بريدة</option>
+                    <option value="27">عنيزة</option>
+                    <option value="28">عنيزة</option>
+                    <option value="29">الخفجي</option>
+                    <option value="30">مدينة جيزان</option>
+                    <option value="31">الرس</option>
+                    <option value="32">القطيف</option>
+                    <option value="33">رأس تنورة</option>
+                    <option value="34"></option>
+                    <option value="35">سيهات </option>
+                    <option value="36">مدينة أبها</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12"><hr /></div>
+            </div>
+          </div>
+
+
+       <div class="col-md-12">
+        <owl-carousel [options]="SlideOptions"  [carouselClasses]="['owl-theme', 'sliding']" >
+          <div
+          class="slider-category-home  owl-home-cats  owl-loaded   owl-drag"
+          id="classs"
+
+        >
+
+            <div
+              class="owl-stages"
+              style="
+                transform: translate3d(0px, 0px, 0px);
+                transition: all 0s ease 0s;
+                width: 1000px;
+    " >
+          <div class="owl-items active"  routerLink="/"  carouselSlide>
+            <div data-cc-color="#eac574" class="item-cat cat-border-color-0" data-cat-id="0" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <div class="box-img"   data-background-color="#eac574" style="background-color: rgb(230, 204, 150);" >
+                <img src="https://image.flaticon.com/icons/svg/3112/3112942.svg"  alt="فنادق وسياحة"/>
+              </div>
+              <span data-color="#eac574"  style="color: rgb(252, 251, 248); font-size: 1vm;"  >جميع التصنيفات</span  >
+            </div>
+          </div>
+          <div class="owl-items active"  routerLink="/hospital" >
+            <div data-cc-color="#8ea3c5" class="item-cat cat-border-color-1"  data-cat-id="1" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <div
+                class="box-img"
+                data-background-color="#8ea3c5"
+                style="background-color: rgb(186, 190, 197);"
+              >
+                <img
+                  src="https://image.flaticon.com/icons/svg/3017/3017701.svg"
+                  alt="مستشفيات وعيادات طبية"
+                />
+              </div>
+              <span
+                data-color="#8ea3c5"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >مستشفيات وعيادات طبية</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active" routerLink="/resturant"  carouselSlide>
+            <div
+              data-cc-color="#d37528"
+              class="item-cat cat-border-color-2"
+              data-cat-id="2"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#d37528"
+                style="background-color: rgb(202, 144, 96);"
+              >
+                <img
+                  src="https://image.flaticon.com/icons/svg/862/862856.svg"
+                  alt="مطاعم وكافيهات"
+                />
+              </div>
+              <span
+                data-color="#d37528"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >مطاعم وكافيهات</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active "  routerLink="/sport"  carouselSlide>
+            <div
+              data-cc-color="#a22135"
+              class="item-cat cat-border-color-3"
+              data-cat-id="3"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#a22135"
+                style="background-color: rgb(163, 82, 95);"
+              >
+                <img
+                  src="https://www.flaticon.com/premium-icon/icons/svg/2264/2264336.svg"
+                  alt="رياضة و ترفيه"
+                />
+              </div>
+              <span
+                data-color="#a22135"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >رياضة و ترفيه</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active"  routerLink="/care"  carouselSlide>
+            <div
+              data-cc-color="#a04065"
+              class="item-cat cat-border-color-4"
+              data-cat-id="4"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#a04065"
+                style="background-color: rgb(148, 97, 117);"
+              >
+                <img src="https://image.flaticon.com/icons/svg/3057/3057395.svg" alt="مراكز عناية" />
+              </div>
+              <span
+                data-color="#a04065"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >مراكز عناية</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active"  routerLink="/shop"  carouselSlide>
+            <div
+              data-cc-color="#7fb9ae"
+              class="item-cat cat-border-color-5"
+              data-cat-id="5"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#7fb9ae"
+                style="background-color: rgb(158, 175, 172);"
+              >
+                <img src="https://image.flaticon.com/icons/svg/884/884268.svg" alt="متاجر" />
+              </div>
+              <span
+                data-color="#7fb9ae"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >متاجر</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active"  routerLink="/school"  carouselSlide>
+            <div
+              data-cc-color="#546392"
+              class="item-cat cat-border-color-6"
+              data-cat-id="6"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#546392"
+                style="background-color: rgb(170, 177, 199);"
+              >
+                <img
+                  src="https://image.flaticon.com/icons/svg/2972/2972085.svg"
+                  alt="مدارس ومراكز تعليم"
+                />
+              </div>
+              <span
+                data-color="#546392"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >مدارس ومراكز تعليم</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active"  routerLink="/hotal">
+            <div data-cc-color="#3b9aa3"class="item-cat cat-border-color-8"data-cat-id="8" routerLinkActive="active"
+
+            >
+              <div
+                class="box-img"
+                data-background-color="#3b9aa3"
+                style="background-color: rgb(164, 204, 207);"
+              >
+                <img src="https://image.flaticon.com/icons/svg/3021/3021961.svg" alt="فنادق وسياحة" />
+              </div>
+              <span
+                data-color="#3b9aa3"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >فنادق وسياحة</span
+              >
+            </div></div></div></div>
+
+
+
+
+          </owl-carousel>
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+      </section>
+
+      <!-- <div
+      class="slider-category-home owl-carousel owl-home-cats owl-rtl owl-loaded owl-drag"
+      id="classs"
+
+    >
+      <div class="owl-stage-outer">
+        <div
+          class="owl-stage"
+          style="
+            transform: translate3d(0px, 0px, 0px);
+            transition: all 0s ease 0s;
+            width: 1000px;
+" >
+          <div class="owl-items active" style="width: 12%;" routerLink="/" >
+            <div data-cc-color="#eac574" class="item-cat cat-border-color-0" data-cat-id="0" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <div class="box-img"   data-background-color="#eac574" style="background-color: rgb(230, 204, 150);" >
+                <img src="https://image.flaticon.com/icons/svg/3112/3112942.svg"  alt="فنادق وسياحة"/>
+              </div>
+              <span data-color="#eac574"  style="color: rgb(252, 251, 248); font-size: 1vm;"  >جميع التصنيفات</span  >
+            </div>
+          </div>
+          <div class="owl-items active" style="width: 12%;" routerLink="/hospital" >
+            <div data-cc-color="#8ea3c5" class="item-cat cat-border-color-1"  data-cat-id="1" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              <div
+                class="box-img"
+                data-background-color="#8ea3c5"
+                style="background-color: rgb(186, 190, 197);"
+              >
+                <img
+                  src="https://image.flaticon.com/icons/svg/3017/3017701.svg"
+                  alt="مستشفيات وعيادات طبية"
+                />
+              </div>
+              <span
+                data-color="#8ea3c5"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >مستشفيات وعيادات طبية</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active" style="width: 12%;"  routerLink="/resturant">
+            <div
+              data-cc-color="#d37528"
+              class="item-cat cat-border-color-2"
+              data-cat-id="2"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#d37528"
+                style="background-color: rgb(202, 144, 96);"
+              >
+                <img
+                  src="https://image.flaticon.com/icons/svg/862/862856.svg"
+                  alt="مطاعم وكافيهات"
+                />
+              </div>
+              <span
+                data-color="#d37528"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >مطاعم وكافيهات</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active " style="width: 12%;" routerLink="/sport" >
+            <div
+              data-cc-color="#a22135"
+              class="item-cat cat-border-color-3"
+              data-cat-id="3"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#a22135"
+                style="background-color: rgb(163, 82, 95);"
+              >
+                <img
+                  src="https://www.flaticon.com/premium-icon/icons/svg/2264/2264336.svg"
+                  alt="رياضة و ترفيه"
+                />
+              </div>
+              <span
+                data-color="#a22135"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >رياضة و ترفيه</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active" style="width: 12%;" routerLink="/care">
+            <div
+              data-cc-color="#a04065"
+              class="item-cat cat-border-color-4"
+              data-cat-id="4"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#a04065"
+                style="background-color: rgb(148, 97, 117);"
+              >
+                <img src="https://image.flaticon.com/icons/svg/3057/3057395.svg" alt="مراكز عناية" />
+              </div>
+              <span
+                data-color="#a04065"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >مراكز عناية</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active" style="width: 12%;" routerLink="/shop">
+            <div
+              data-cc-color="#7fb9ae"
+              class="item-cat cat-border-color-5"
+              data-cat-id="5"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#7fb9ae"
+                style="background-color: rgb(158, 175, 172);"
+              >
+                <img src="https://image.flaticon.com/icons/svg/884/884268.svg" alt="متاجر" />
+              </div>
+              <span
+                data-color="#7fb9ae"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >متاجر</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active" style="width: 12%;" routerLink="/school">
+            <div
+              data-cc-color="#546392"
+              class="item-cat cat-border-color-6"
+              data-cat-id="6"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}"
+            >
+              <div
+                class="box-img"
+                data-background-color="#546392"
+                style="background-color: rgb(170, 177, 199);"
+              >
+                <img
+                  src="https://image.flaticon.com/icons/svg/2972/2972085.svg"
+                  alt="مدارس ومراكز تعليم"
+                />
+              </div>
+              <span
+                data-color="#546392"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >مدارس ومراكز تعليم</span
+              >
+            </div>
+          </div>
+          <div class="owl-items active" style="width: 12%;" routerLink="/hotal">
+            <div data-cc-color="#3b9aa3"class="item-cat cat-border-color-8"data-cat-id="8" routerLinkActive="active"
+
+            >
+              <div
+                class="box-img"
+                data-background-color="#3b9aa3"
+                style="background-color: rgb(164, 204, 207);"
+              >
+                <img src="https://image.flaticon.com/icons/svg/3021/3021961.svg" alt="فنادق وسياحة" />
+              </div>
+              <span
+                data-color="#3b9aa3"
+                style="color: rgb(252, 251, 248); font-size: medium;"
+                >فنادق وسياحة</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="owl-nav">
+        <button
+          type="button"
+          role="presentation"
+          class="owl-prev"
+        >
+          </button
+        ><button
+          type="button"
+          role="presentation"
+          class="owl-next"
+        >
+
+        </button>
+      </div>
+    </div> -->
+

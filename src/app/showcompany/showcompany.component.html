@@ -1,0 +1,210 @@
+<app-nav></app-nav>
+<app-menu></app-menu>
+
+<div class="section-padding" id="single-details-provider" >
+
+  <div class="container">
+
+    <div class="product-info row mt-50">
+
+      <div class="col-lg-8 col-md-12 col-xs-12" style="background-color:rgb(230, 240, 243)" *ngFor="let company of company">
+        <br>
+        <h1>معلومات الخاصة بالمنشأة</h1>
+        <br>
+        <div >
+
+          <img src= "https://scon2.herokuapp.com/{{company.image}}" style="width:100%; height:50%">
+        </div>
+        <div class="details-box" >
+          <div class="ads-details-info">
+            <h2>{{company.Name}}</h2>
+            <div class="details-meta">
+              <span
+                ><mat-icon color="primary"> edit_location</mat-icon>{{company.address}}</span
+              >
+              <span
+                >	<mat-icon color="accent"> phone</mat-icon>
+                <a  style="direction: ltr" dir="ltr">
+                  {{company.phone}}</a
+                ></span
+              >
+            </div>
+            <hr>
+            <h1>التفاصيل</h1>
+            <div class="tab-content" id="myTabContent" >
+              <div
+                class="tab-pane fade show active"
+                id="details"
+                role="tabpanel"
+                aria-labelledby="home-tab"
+              >
+                <div  style="text-align: right">
+                 <h1 dir="rtl" style="font-size: 4vh; color: #2711a0">الخصومات</h1>
+
+                  <div *ngFor="let discount of discount" >
+                    <h2>خصومات على منتج واحد </h2>
+
+                        <span style="color: #2711a0;font-size: 2.4vh;">الخدمة المقدمة:</span>
+                        <span style="font-size: 2.4vh;">{{discount.title}}</span> <br>
+
+                        <span style="color:#2711a0;font-size: 2.4vh;"> وصف الخدمة: </span>
+                        <span style="font-size: 2.4vh;">{{discount.discription}}</span>
+
+                    <div
+                      style="
+                        background: rgb(219, 227, 245);
+                        border: 1px solid rgb(249, 249, 249);
+                        padding: 15px;
+                        color: rgb(34, 34, 34);
+                        margin-bottom: 10px;
+                      "
+                    >
+                    <div class="row">
+                      <div class="col-xs-3 col-sm-3 col-md-2 text-center">
+                        <span > <img src="https://scon2.herokuapp.com/{{discount.image}}" style="height: 80%;width: 80%;"></span>
+                      </div>
+
+                      <div class="col-xs-3 col-sm-3 col-md-3">
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color: #2711a0;">السعر</span>
+                           {{discount.price}}
+                        </h6>
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color:#2711a0;">سعر الخصم</span>
+                          {{discount.discount}}
+                        </h6>
+                      </div>
+                      <div class="col-xs-4 col-sm-4 col-md-4">
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color: #2711a0; ">تاريخ بداية الخصم</span>
+                          {{discount.startdate}}
+                        </h6>
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color:#2711a0;">تاريخ نهاية الخصم</span>
+                          {{discount.enddate}}
+                        </h6>
+                      </div>
+                      <div class="col-xs-3 col-sm-3 col-md-3">
+                        <span  > <button mat-button color="accent" style="height: 100%; width:100%;background-color: rgb(197, 223, 247);font-size: 2.5vh; font-weight: bold;">الحصول على الخصم</button></span>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div  *ngFor="let discountall of discountall" >
+                    <h2>خصومات على  جميع المنتجات </h2>
+                    <div
+                      style="
+                        background: rgb(219, 227, 245);
+                        border: 1px solid rgb(249, 249, 249);
+                        padding: 15px;
+                        color: rgb(34, 34, 34);
+                        margin-bottom: 10px;
+                      "
+                    >
+                    <div class="row">
+                      <div class="col-xs-3 col-sm-3 col-md-2 text-center">
+                        <span > <img src="https://scon2.herokuapp.com/{{discountall.image}}" style="height: 80%;width: 80%;"></span>
+                      </div>
+                      <div class="col-xs-3 col-sm-4 col-md-4">
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color: #2711a0; ">الخدمة المقدمة:</span>
+                           {{discountall.title}}
+                        </h6>
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color:#2711a0;"> وصف الخدمة </span>
+                          {{discountall.discription}}
+                        </h6>
+                      </div>
+                      <div class="col-xs-2 col-sm-2 col-md-2">
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color: #2711a0;">السعر</span>
+                           {{discountall.price}}
+                        </h6>
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color:#2711a0;">سعر الخصم</span>
+                          {{discountall.discount}}
+                        </h6>
+                      </div>
+                      <div class="col-xs-3 col-sm-3 col-md-3">
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color: #2711a0;">تاريخ بداية الخصم</span>
+                          {{discountall.startdate}}
+                        </h6>
+                        <h6 style=" font-size: 2.4vh;">
+                          <span style="color:#2711a0;">تاريخ نهاية الخصم</span>
+                          {{discountall.enddate}}
+                        </h6>
+                      </div>
+                      <div class="col-xs-3 col-sm-3 col-md-3">
+                        <span  > <button mat-button color="accent" style="height: 100%; width:100%;background-color: rgb(197, 223, 247);font-size: 2.5vh; font-weight: bold;">الحصول على الخصم</button></span>
+                      </div>
+
+                    </div>
+                    </div>
+                  </div>
+    </div>
+    <div  style="text-align: right">
+      <h1 dir="rtl" style="font-size: 3vh; color: #2711a0">الكوبونات</h1>
+
+       <div *ngFor="let cupon of cupon">
+         <div
+           style="
+             background: rgb(219, 227, 245);
+             border: 1px solid rgb(249, 249, 249);
+             padding: 15px;
+             color: rgb(34, 34, 34);
+             margin-bottom: 10px;
+           "
+         >
+         <div class="row">
+          <div class="col-xs-3 col-sm-3 col-md-2 text-center">
+            <span > <img src="https://scon2.herokuapp.com/{{cupon.image}}" style="height: 80%;width: 80%;"></span>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-4">
+            <h6 style=" font-size: 2.4vh;">
+              <span style="color: #2711a0; font-size: 2.5vh;">الخدمة المقدمة:</span>
+               {{cupon.Name}}
+            </h6>
+            <h6 style="font-size: 2.5vh;">
+              <span style="color: #2711a0;"> وصف الخدمة </span>
+              {{cupon.discription}}
+            </h6>
+          </div>
+          <div class="col-xs-2 col-sm-2 col-md-2">
+            <h6 style=" font-size: 2.4vh;">
+              <span style="color: #2711a0;">نوع الخصم</span>
+               {{cupon.cupontype}}
+            </h6>
+            <h6 style=" font-size: 2.4vh;">
+              <span style="color:#2711a0;">السعر السابق </span>
+              {{cupon.prvprice}}
+            </h6>
+            <h6 style=" font-size: 2.4vh;">
+              <span style="color:#2711a0;">السعر الحالي </span>
+              {{cupon.currentprice}}
+            </h6>
+          </div>
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <h6 style=" font-size: 2.4vh;">
+              <span style="color: #2711a0; ">تاريخ بداية الخصم</span>
+              {{cupon.startdate}}
+            </h6>
+            <h6 style=" font-size: 2.4vh;">
+              <span style="color:#2711a0;">تاريخ نهاية الخصم</span>
+              {{cupon.enddate}}
+            </h6>
+          </div>
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <span  > <button mat-button color="accent" style="height: 100%; width:100%;background-color: rgb(197, 223, 247);font-size: 2.5vh; font-weight: bold;">الحصول على الخصم</button></span>
+          </div>
+         </div>
+       </div>
+
+       <div>
+
+
+</div>
+</div>
+  </div>
+</div>

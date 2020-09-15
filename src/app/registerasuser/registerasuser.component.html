@@ -1,0 +1,119 @@
+<app-nav></app-nav>
+<html  dir="rtl" lang="ar">
+  <head>
+    <meta charset="utf-8">
+    <title>تسجيل منشأة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <div style="background-color: rgba(247, 250, 253, 0.432); width: 60%;  margin: auto; margin-top: 30px;" >
+ <div class="container py-5" dir="rtl" >
+  <div class="row" style="margin: auto;place-content: center;">
+    <div class="col-sm-3">
+  <button style=" color:#080808 ; text-align: center; font-family: 'Amiri', serif; font-size: 20px; " routerLink="/registercompany">تسجيل كمنشأة</button>
+    </div>
+  <div class="col-sm-3">
+  <button style="color:#0d0d0e ; text-align: center; font-family: 'Amiri', serif; font-size: 20px; " routerLink="/registerasuser">تسجيل كمستخدم</button>
+  </div>
+  <div class="col-sm-3">
+  <button style="color:#1b1b1b ; text-align: center; font-family: 'Amiri', serif; font-size: 20px;" routerLink="/registerasmarketar">تسجيل كمسوق</button>
+  </div></div>
+  <br><br>
+  <h1 style=" font-family: 'Amiri', serif; font-size: 30px; text-align: center; color: #00a6ca;">تسجيل كمستخدم</h1>
+  <div class="row">
+      <div class="col-md-10 mx-auto" >
+          <form dir="rtl" [formGroup]="form">
+              <div class="form-group row">
+                  <div class="col-sm-6" >
+                      <label for="inputFirstname" dir="rtl">الاسم</label>
+                      <input type="text" class="form-control" id="inputFirstname" placeholder="الاسم " formControlName="name" required>
+                      <span class="text-danger" *ngIf=" form.controls.name.invalid && form.controls.name.touched&&form.controls.name.errors.required" >الرجاء ادخال الاسم </span>
+
+                  </div>
+                  <div class="col-sm-6">
+                      <label for="inputemail">البريد</label>
+                      <input type="email" class="form-control" id="inputemail" placeholder="أدخل البريد" formControlName="email" required>
+                      <span class="text-danger" *ngIf=" form.controls.email.invalid && form.controls.email.touched&&form.controls.email.errors.required" >الرجاء ادخال البريد الإلكتروني </span>
+                      <span class="text-danger" *ngIf="form.controls.email.invalid && form.controls.email.touched &&form.controls.email.errors.email" >يجب أن يكون بريد إلكتروني  </span>
+
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <div class="col-sm-6">
+                      <label for="inputage">العمر</label>
+                      <input type="text" class="form-control" id="inputage" placeholder="العمر" formControlName="age" required>
+                      <span class="text-danger" *ngIf="form.controls.age.invalid && form.controls.age.touched &&form.controls.age.errors.email" >الرجاء ادخال العمر  </span>
+
+                  </div>
+                  <div class="col-sm-6">
+                      <label for="inputtel">الجوال </label>
+                      <input type="tel" class="form-control" id="inputtel" placeholder="الجوال" formControlName="phone" required>
+                      <span class="text-danger" *ngIf="form.controls.phone.invalid && form.controls.phone.touched &&form.controls.phone.errors.required" >الرجاء ادخال رقم الجوال  </span>
+
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <div class="col-sm-6">
+                   <div class="col-sm-6">
+                      <label for="inputCountry">المدينة</label>
+                      <select type="text"  class="form-control" id="inputCountry" placeholder="اختر المدينة" formControlName="city" (change)="getreagon($event)" required>
+                        <option value="" > اختر المدينة</option>
+                        <option *ngFor="let city of cities" value="{{city.id}}">{{city.Name}}</option>
+                      </select>
+                      <span class="text-danger" *ngIf="form.controls.city.invalid && form.controls.city.touched &&form.controls.city.errors.required" >الرجاء اختيار مدينة </span>
+
+                  </div>
+                  <div class="col-sm-6">
+                   <label for="inputCity">المنطقة</label>
+                   <select type="text"  class="form-control"  placeholder="اختر المنطقة" formControlName="regon" required>
+                    <option value=""> اختر المنطقة</option>
+                    <option *ngFor="let regon of regons" value="{{regon.id}}">{{regon.Name}}</option>
+                  </select>
+                 <span class="text-danger" *ngIf=" form.controls.regon.invalid && form.controls.regon.touched&&form.controls.regon.errors.required" >الرجاء اختيار المنطقة</span></div>
+                  </div>
+                  <div class="col-sm-6">
+                    <label for="sel1">الجنس </label>
+                    <select  required="required" class="form-control"  id="sel1" formControlName="gender" required>
+                       <option class="form-control">ذكر</option>
+                       <option class="form-control">أنثى </option>
+                       </select>
+                        <span class="text-danger" *ngIf="form.controls.gender.invalid && form.controls.gender.touched &&form.controls.gender.errors.required" >الرجاء اختيار نوع الجنس</span>
+                      </div>
+
+              </div>
+              <div class="form-group row">
+
+                  <div class="col-sm-6">
+                   <label >الاهتمامات</label>
+            <mat-select required="required" style="border: 1px solid black; width: 100%; height: 40px; border-radius: 20px;"  multiple  formControlName="category" required>
+                       <mat-option *ngFor="let category of categories" value="{{category.id}}" >{{category.Name}}</mat-option>
+                     </mat-select>
+                     <span class="text-danger" *ngIf="form.controls.category.invalid && form.controls.category.touched &&form.controls.category.errors.required" >الرجاء اختيار الاهتمامات</span>
+
+                  </div>
+                  <div class="col-sm-6">
+                      <label for="inputimg">الصورة </label>
+                      <input type="file" class="form-control" id="inputimg" placeholder="اختر الصورة" formControlName="image" required #image>
+                      <span class="text-danger" *ngIf="form.controls.image.invalid && form.controls.image.touched &&form.controls.image.errors.required" >الرجاء ادخال صورة </span>
+
+                  </div>
+
+               </div>
+               <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputpassword">كلمة المرور</label>
+                    <input name="password" type="password" class="form-control" id="inputpassword" placeholder=" كلمة المرور" formControlName="password" minlength="6" required>
+                    <span class="text-danger" *ngIf="form.controls.password.invalid && form.controls.password.touched &&form.controls.password.errors.required" >الرجاء ادخال كلمة مرور </span>
+                    <span class="text-danger" *ngIf="form.controls.password.invalid && form.controls.password.touched &&form.controls.password.errors.minlength" >الرجاء ادخال أكثر من 6 أرقام </span>
+
+                </div>
+
+            </div>
+              <button type="button" class="btn btn-primary px-4 float-right" [disabled]="form.invalid" (click)="registerasuser()">تسجيل جديد</button>
+          </form>
+      </div>
+  </div>
+ </div>
+  </div>
+
+ </html>
+ <!-- [disabled]="!form.value.invalid" -->

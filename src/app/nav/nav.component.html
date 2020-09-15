@@ -1,0 +1,50 @@
+<header>
+  <div class="container">
+    <nav
+      class="navbar navbar-expand-lg navbar-light justify-content-between" style="padding-top:15px; padding-bottom:1px;" >
+      <a class="navbar-brand" href="index.html" style="padding-left:auto;">
+        <img
+          src="/assets/scon2.png"
+          alt="Scon2"
+          style="height: 60px; width: 200px; "
+          class="img-responsive"
+
+      /></a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+        <ul class="navbar-nav ml-auto mr-0">
+          <li class="nav-item" >
+            <a class="nav-link" routerLink="/" style="font-size: 1.2em;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">الرئيسية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/aboutus" style="font-size: 1.2em;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">من نحن</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/ourservices" style="font-size: 1.2em;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">خدماتنا</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  *ngIf="!(authservice.isLoginascompany||authservice.isLoginasmarketer||authservice.isLoginasuser)" routerLink="/registercompany" style="font-size: 1.2em;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"> تسجيل جديد</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="authservice.isLoginasuser" routerLink="/userprofile" style="font-size: 1.2em;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">  الملف الشخصي</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="authservice.isLoginascompany" routerLink="/companyprofile" style="font-size: 1.2em;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">  الملف الشخصي للشركة</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="!(authservice.isLoginascompany||authservice.isLoginasmarketer||authservice.isLoginasuser)"   routerLink="/loginasuser" style="font-size: 1.2em;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">  دخول</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="authservice.isAdmin" routerLink="/admin/companies" style="font-size: 1.2em;" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">  الشركات</a>
+          </li>
+
+
+
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

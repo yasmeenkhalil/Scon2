@@ -1,0 +1,63 @@
+<app-nav></app-nav>
+<div class="wrapper-n">
+  <app-menu></app-menu>
+  <section class="home-providers">
+    <div class="container">
+      <div class="row" id="home-providers-wrapper">
+        <div class="tab-pane fade active show">
+          <div class="row">
+            <div
+              class="col-xs-12 col-sm-6 col-md-4 col-lg-4"
+              *ngFor="let company of companies"
+            >
+              <div class="featured-box">
+                <figure>
+                  <a routerLink="/showcompany/{{company.id}}"
+                    ><img
+                      class="img-fluid"
+                      src="https://scon2.herokuapp.com/{{company?.image}}"
+                      alt=""
+                  /></a>
+
+                </figure>
+                <div class="feature-content">
+                  <div class="product">
+                    <i>
+                      <div class="box-img-small ">
+                        <mat-icon color="accent">business_center</mat-icon>
+                      </div>
+                    </i>
+
+                    <span class="d-inline-block t--8 cat-color-1">
+                      {{company?.Category?.Name}}</span
+                    >
+                  </div>
+
+                  <h4 class="cat-color-1"> <mat-icon color="primary"> edit_location</mat-icon>
+                    <a class="cat-color-1"
+                      >   {{company.address}} </a
+                    >
+                  </h4>
+                  <div class="meta-tag">
+                    <span>
+                      {{company.Name}}
+                    </span>
+                  </div>
+                  <p class="dsc"></p>
+                  <div class="listing-bottom">
+                    <a
+                      routerLink="/showcompany/{{company.id}}"
+                      class="btn btn-common cat-background-color-1"
+                      >عرض التفاصيل</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<br /><br /><br /><br />
